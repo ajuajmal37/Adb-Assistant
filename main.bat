@@ -10,7 +10,7 @@ echo   /__\  (  _ \(  _ \     /__\  / __)/ __)(_  _)/ __)(_  _) /__\  ( \( )(_  
 echo  /(__)\  ) _  )(_) )   /(__)\ \__ \\__ \ _)(_ \__ \  )(  /(__)\  )  (   )(  
 echo (__)(__)(____/(____/   (__)(__)(___/(___/(____)(___/ (__)(__)(__)(_)\_) (__)  Version 1.0.0 
 echo.
-echo                     From Ajtech   Auther : Ajmal CP
+echo                     From Ajtech   Authur : Ajmal CP
 echo.                                                                                  
 goto :eof
 
@@ -34,8 +34,8 @@ goto :eof
 :DicscoPrompt
 setlocal
     CHOICE /N /C:LDS  /M "List Of Connected Devices [L] Disconnect All [D] Skip [S] "%1
-    IF %ERRORLEVEL% EQU 1 bin\adb devices -l && goto :DicscoPrompt
-    IF %ERRORLEVEL% EQU 2 bin\adb disconnect && goto :ToConnectDevice
+    IF %ERRORLEVEL% EQU 1 adb devices -l && goto :DicscoPrompt
+    IF %ERRORLEVEL% EQU 2 adb disconnect && goto :ToConnectDevice
 
 endlocal 
 goto :eof
@@ -64,7 +64,7 @@ goto :eof
     cls
     ) ELSE (
         echo Adb server Starting...
-        bin\adb start-server
+        adb start-server
         cls
      )
      call :AdbCheckDevices
@@ -97,7 +97,7 @@ goto :eof
 
 :AdbCheckDevices
 
-    bin\adb devices -l | find "device product:" >nul
+    adb devices -l | find "device product:" >nul
    
         if errorlevel 1 (
             set isConnected=0
@@ -120,11 +120,11 @@ CLS
             set /p devIp= [Enter Device Ip ] :
             IF [%devIp%] EQU []  goto DevIp
             cls
-            bin\adb connect %devIp%
+            adb connect %devIp%
             
 
             
-            bin\adb connect %devIp% | find "connected to %DevIp%" >nul 
+            adb connect %devIp% | find "connected to %DevIp%" >nul 
             echo.
             if %errorlevel% EQU 1 (
                 cls
@@ -174,7 +174,7 @@ CLS
 :Listdev
     cls
     call :Banner
-    bin\adb devices -l
+    adb devices -l
     CHOICE /N /C:BEDR /M "Back [B] Exit [E] Disconnect All [D] Reboot [R]"
     IF ERRORLEVEL 4 goto :Reboot
     IF ERRORLEVEL 3 goto :disconnectAll
@@ -189,7 +189,7 @@ CLS
     set appName=
     
     set /p appName=[Enter File Name With Path] : 
-    bin\adb install "%appname%"
+    adb install "%appname%"
      CHOICE /N /C:BER /M "Back [B] Exit [E] Next [N]"
     IF ERRORLEVEL 3 goto :installApp
 
@@ -208,7 +208,7 @@ CLS
         set packageName=
         
         set /p packageName=[Enter Package Name] : 
-        bin\adb shell pm uninstall -k --user 0 %packageName%
+        adb shell pm uninstall -k --user 0 %packageName%
         CHOICE /N /C:BER /M "Back [B] Exit [E] Retry [R]"
         IF ERRORLEVEL 3 goto :uninstallApp
 
@@ -222,7 +222,7 @@ CLS
     setlocal
         cls
         call :Banner
-        bin\adb shell pm list packages
+        adb shell pm list packages
         CHOICE /N /C:BE /M "Back [B] Exit [E]"
     IF ERRORLEVEL 2 exit /b 0
     IF ERRORLEVEL 1 goto :Menu
@@ -234,7 +234,7 @@ CLS
     setlocal
         cls
         call :Banner
-        bin\adb shell pm list packages -s
+        adb shell pm list packages -s
         CHOICE /N /C:BE /M "Back [B] Exit [E]"
     IF ERRORLEVEL 2 exit /b 0
     IF ERRORLEVEL 1 goto :Menu
@@ -247,7 +247,7 @@ CLS
     setlocal
         cls
         call :Banner
-        bin\adb shell pm list packages -3
+        adb shell pm list packages -3
         CHOICE /N /C:BE /M "Back [B] Exit [E]"
     IF ERRORLEVEL 2 exit /b 0
     IF ERRORLEVEL 1 goto :Menu
@@ -258,7 +258,7 @@ CLS
     setlocal
         cls
         call :Banner
-        bin\adb shell pm list packages -d
+        adb shell pm list packages -d
         CHOICE /N /C:BE /M "Back [B] Exit [E]"
     IF ERRORLEVEL 2 exit /b 0
     IF ERRORLEVEL 1 goto :Menu
@@ -270,7 +270,7 @@ CLS
     setlocal
         cls
         call :Banner
-        bin\adb shell pm list packages -e
+        adb shell pm list packages -e
         CHOICE /N /C:BE /M "Back [B] Exit [E]"
     IF ERRORLEVEL 2 exit /b 0
     IF ERRORLEVEL 1 goto :Menu
@@ -281,7 +281,7 @@ CLS
     setlocal
         cls
         call :Banner
-        bin\adb shell pm list packages -u
+        adb shell pm list packages -u
         CHOICE /N /C:BE /M "Back [B] Exit [E]"
     IF ERRORLEVEL 2 exit /b 0
     IF ERRORLEVEL 1 goto :Menu
@@ -292,7 +292,7 @@ CLS
     setlocal
         cls
         call :Banner
-        bin\adb reboot
+        adb reboot
         CHOICE /N /C:BE /M "Back [B] Exit [E]"
     IF ERRORLEVEL 2 exit /b 0
     IF ERRORLEVEL 1 goto :Menu
@@ -302,7 +302,7 @@ CLS
 :disconnectAll
     setlocal
         cls
-        bin\adb disconnect 
+        adb disconnect 
         goto :ToConnectDevice
     endlocal
     goto :eof
