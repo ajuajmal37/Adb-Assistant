@@ -1,3 +1,39 @@
+::[Bat To Exe Converter]
+::
+::fBE1pAF6MU+EWH7eyHIiJxFRTxCRAEq+BPU9+/vy/P6GrFkhVusxRI7f2PqLOOVz
+::fBE1pAF6MU+EWH7eyHIiJxFRTxCRAEq+BPU9+/vy/P6GrFkhVusxRK7f2IOHLsED4wvgeZpN
+::fBE1pAF6MU+EWH7eyHIiJxFRTxCRAEq+BPU9+/vy/P6GrFkhVusxRK7f2IOHLtUA6GT0fNgp2nY6
+::YAwzoRdxOk+EWAjk
+::fBw5plQjdCyDJGyX8VAjFDdRQguUM1eeCaIS5Of66/m7j0wPQPhmKML406aNLOVey0vgZ5kk0jRTm8Rs
+::YAwzuBVtJxjWCl3EqQJgSA==
+::ZR4luwNxJguZRRnk
+::Yhs/ulQjdF65
+::cxAkpRVqdFKZSDk=
+::cBs/ulQjdF+5
+::ZR41oxFsdFKZSDk=
+::eBoioBt6dFKZSDk=
+::cRo6pxp7LAbNWATEpSI=
+::egkzugNsPRvcWATEpCI=
+::dAsiuh18IRvcCxnZtBJQ
+::cRYluBh/LU+EWAnk
+::YxY4rhs+aU+IeA==
+::cxY6rQJ7JhzQF1fEqQJhZksaHErTXA==
+::ZQ05rAF9IBncCkqN+0xwdVsFAlTMbCXrZg==
+::ZQ05rAF9IAHYFVzEqQIRLBkUTReRNXiuB7sIiA==
+::eg0/rx1wNQPfEVWB+kM9LVsJDCWGPiu7FaYV+/z64f7n
+::fBEirQZwNQPfEVWB+kM9LVsJDCWGPiu7FaYV+/z64f7n
+::cRolqwZ3JBvQF1fEqQJQ
+::dhA7uBVwLU+EWHiO4EczIHs=
+::YQ03rBFzNR3SWATElA==
+::dhAmsQZ3MwfNWATEphJieXs=
+::ZQ0/vhVqMQ3MEVWAtB9wSA==
+::Zg8zqx1/OA3MEVWAtB9wSA==
+::dhA7pRFwIByZRRm28U41KR4USAWWOSvoUPhMvqWpv7jWwg==
+::Zh4grVQjdCiDJGmW+0g1Kw9HcCWGPiubFaYV+/z64f67g0kfFMMsa4bIzrWANKBb/Ai1O8ZjhjQL0YUJFB44
+::YB416Ek+ZG8=
+::
+::
+::978f952a14a936cc963da21a135fa983
 @echo off
 
 goto :Main
@@ -8,9 +44,9 @@ echo.
 echo    __    ____  ____       __    ___  ___  ____  ___  ____   __    _  _  ____ 
 echo   /__\  (  _ \(  _ \     /__\  / __)/ __)(_  _)/ __)(_  _) /__\  ( \( )(_  _)
 echo  /(__)\  ) _  )(_) )   /(__)\ \__ \\__ \ _)(_ \__ \  )(  /(__)\  )  (   )(  
-echo (__)(__)(____/(____/   (__)(__)(___/(___/(____)(___/ (__)(__)(__)(_)\_) (__)  Version 1.0.0 
+echo (__)(__)(____/(____/   (__)(__)(___/(___/(____)(___/ (__)(__)(__)(_)\_) (__)  Version 1.0.1 
 echo.
-echo                     From Ajtech   Authur : Ajmal CP
+echo  From Ajtech - Authur : Ajmal CP - Release date : 26-06-2021
 echo.                                                                                  
 goto :eof
 
@@ -111,26 +147,27 @@ goto :eof
 
 :ToConnectDevice
 CLS
-   call :Banner
-   :DevIp
    
+   :DevIp
+    cls
+	call :Banner
     set devIp=
         echo.
         echo Create a new connection
             set /p devIp= [Enter Device Ip ] :
-            IF [%devIp%] EQU []  goto DevIp
-            cls
+            IF [%devIp%] EQU []  goto DevIp	
+		echo Connecting.....
+	
             adb connect %devIp%
             
 
             
             adb connect %devIp% | find "connected to %DevIp%" >nul 
-            echo.
+            echo.1
             if %errorlevel% EQU 1 (
                 cls
                 echo Something went wrong  please try again
             echo.
-
              goto :ToConnectDevice
          
         ) else (
@@ -189,7 +226,7 @@ CLS
     set appName=
     
     set /p appName=[Enter File Name With Path] : 
-    adb install "%appname%"
+    adb install -d "%appname%"
      CHOICE /N /C:BER /M "Back [B] Exit [E] Next [N]"
     IF ERRORLEVEL 3 goto :installApp
 
