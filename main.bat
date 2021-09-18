@@ -1,10 +1,10 @@
 ::[Bat To Exe Converter]
 ::
-::fBE1pAF6MU+EWH7eyHIiJxFRTxCRAEq+BPU9+/vy/P6GrFkhVusxRI7f2PqLOOVz
-::fBE1pAF6MU+EWH7eyHIiJxFRTxCRAEq+BPU9+/vy/P6GrFkhVusxRK7f2IOHLsED4wvgeZpN
-::fBE1pAF6MU+EWH7eyHIiJxFRTxCRAEq+BPU9+/vy/P6GrFkhVusxRK7f2IOHLtUA6GT0fNgp2nY6
+::fBE1pAF6MU+EWHreyHcjLQlHcCiHMmSsCfgsy9Tf6vmMtkINaMM7esL6yaeHM/QS5FHYd58j6ntemoUJFB44
+::fBE1pAF6MU+EWHreyHcjLQlHcCiHMmSsCfgsy9Tf6vmMtkINaMM7esL6yaeHM/QS5FHYd58j6ltemvwFAjpId1yvYgNU
+::fBE1pAF6MU+EWHreyHcjLQlHcCiHMmSsCfgsy9Tf6vmMtkINaMM7esL6yaeHM/QS5FHYd58j6ltemvwFAi5LfDO7Z0EwpWIi
 ::YAwzoRdxOk+EWAjk
-::fBw5plQjdCyDJGyX8VAjFDdRQguUM1eeCaIS5Of66/m7j0wPQPhmKML406aNLOVey0vgZ5kk0jRTm8Rs
+::fBw5plQjdCyDJGyX8VAjFDdRQguUMyaKJYk45//14+WGpl4heeMtbJWCivmtKfIQ5kCpVJgpxHVTnIUFDxQ4
 ::YAwzuBVtJxjWCl3EqQJgSA==
 ::ZR4luwNxJguZRRnk
 ::Yhs/ulQjdF65
@@ -12,29 +12,33 @@
 ::cBs/ulQjdF+5
 ::ZR41oxFsdFKZSDk=
 ::eBoioBt6dFKZSDk=
-::cRo6pxp7LAbNWATEpSI=
+::cRo6pxp7LAbNWATEpCI=
 ::egkzugNsPRvcWATEpCI=
 ::dAsiuh18IRvcCxnZtBJQ
 ::cRYluBh/LU+EWAnk
 ::YxY4rhs+aU+IeA==
-::cxY6rQJ7JhzQF1fEqQJhZksaHErTXA==
-::ZQ05rAF9IBncCkqN+0xwdVsFAlTMbCXrZg==
-::ZQ05rAF9IAHYFVzEqQIRLBkUTReRNXiuB7sIiA==
-::eg0/rx1wNQPfEVWB+kM9LVsJDCWGPiu7FaYV+/z64f7n
-::fBEirQZwNQPfEVWB+kM9LVsJDCWGPiu7FaYV+/z64f7n
+::cxY6rQJ7JhzQF1fEqQJhZksaHErQXA==
+::ZQ05rAF9IBncCkqN+0xwdVsFAlTMbCXqZg==
+::ZQ05rAF9IAHYFVzEqQIRLBkUbReRNXiuB7sIqLm1v6TVwg==
+::eg0/rx1wNQPfEVWB+kM9LVsJDCWGPiubFaYV+/z64f7n
+::fBEirQZwNQPfEVWB+kM9LVsJDGQ=
 ::cRolqwZ3JBvQF1fEqQJQ
 ::dhA7uBVwLU+EWHiO4EczIHs=
 ::YQ03rBFzNR3SWATElA==
-::dhAmsQZ3MwfNWATEphJieXs=
+::dhAmsQZ3MwfNWATElA==
 ::ZQ0/vhVqMQ3MEVWAtB9wSA==
 ::Zg8zqx1/OA3MEVWAtB9wSA==
-::dhA7pRFwIByZRRm28U41KR4USAWWOSvoUPhMvqWpv7jWwg==
-::Zh4grVQjdCiDJGmW+0g1Kw9HcCWGPiubFaYV+/z64f67g0kfFMMsa4bIzrWANKBb/Ai1O8ZjhjQL0YUJFB44
+::dhA7pRFwIByZRRnk
+::Zh4grVQjdCyDJGyX8VAjFDdRQguUMyaKJYk47fvw++WXnmwZVq8ea5zSyaCPLvQvy0HmNbc+xXNJjMoCGFsQaF/6IF96+SAQ/yqAL8L8
 ::YB416Ek+ZG8=
 ::
 ::
 ::978f952a14a936cc963da21a135fa983
 @echo off
+
+set ipaddr=%1
+
+IF [%ipaddr%] == [] exit /b 0
 
 goto :Main
 
@@ -44,9 +48,9 @@ echo.
 echo    __    ____  ____       __    ___  ___  ____  ___  ____   __    _  _  ____ 
 echo   /__\  (  _ \(  _ \     /__\  / __)/ __)(_  _)/ __)(_  _) /__\  ( \( )(_  _)
 echo  /(__)\  ) _  )(_) )   /(__)\ \__ \\__ \ _)(_ \__ \  )(  /(__)\  )  (   )(  
-echo (__)(__)(____/(____/   (__)(__)(___/(___/(____)(___/ (__)(__)(__)(_)\_) (__)  Version 1.0.1 
+echo (__)(__)(____/(____/   (__)(__)(___/(___/(____)(___/ (__)(__)(__)(_)\_) (__)  Version 1.0.2
 echo.
-echo  From Ajtech - Authur : Ajmal CP - Release date : 26-06-2021
+echo  From Ajtech - Authur : Ajmal CP - Release date : 19-09-2021
 echo.                                                                                  
 goto :eof
 
@@ -76,13 +80,22 @@ setlocal
 endlocal 
 goto :eof
 
+:retryPrompt
+
+setlocal
+    CHOICE /N /C:RE /M "Exit [E] Retry[R]"
+    IF ERRORLEVEL 2 exit /b 0
+    IF ERRORLEVEL 1 goto :ToConnectDevice %ipaddr%
+endlocal 
+goto :eof
+
 
 
 
 :KillServer
     echo Killing server...
     taskkill /F /IM adb.exe
-    timeout /t 3 /nobreak
+    ::timeout /t 3 /nobreak
     cls
     
     goto Main
@@ -110,20 +123,21 @@ goto :eof
         echo.
         echo.
         echo No connected Devices
-        call :ToConnectDevice
+        call :ToConnectDevice %ipaddr%
 
 
 
 
     ) else if %isConnected% EQU 1 (
-        cls
-       
-        call :Banner
-        echo.
-        echo.
-        echo Connected Devices Found
-        call :DicscoPrompt
-        goto :Menu
+        ::cls
+        adb disconnect 
+        ToConnectDevice %ipaddr%
+        ::call :Banner
+        ::echo.
+        ::echo.
+        ::echo Connected Devices Found
+        ::call :DicscoPrompt
+        ::goto :Menu
     )
 
  goto :eof
@@ -151,32 +165,33 @@ CLS
    :DevIp
     cls
 	call :Banner
-    set devIp=
+    
+    set devIp= %1
         echo.
         echo Create a new connection
-            set /p devIp= [Enter Device Ip ] :
-            IF [%devIp%] EQU []  goto DevIp	
-		echo Connecting.....
-	
-            adb connect %devIp%
-            
+            ::set /p devIp= [Enter Device Ip ] :
+            ::IF [%devIp%] EQU []  goto DevIp	
+            echo.
+		echo Connecting to %devIp% .....
 
+            adb connect %devIp%  | find "10060" >nul
+            if %errorlevel% EQU 0 (
+                echo Cannot connect to %devIp%. A connection attempt failed. Timeout
+                exit /b 0
+            )
+            adb connect %devIp%  | find "10061" >nul
+            if %errorlevel% EQU 0 (
+                echo Cannot connect to %devIp%. Target machine actively refused it
+                goto :retryPrompt
+            )
+           
             
             adb connect %devIp% | find "connected to %DevIp%" >nul 
-            echo.1
-            if %errorlevel% EQU 1 (
-                cls
-                echo Something went wrong  please try again
-            echo.
-             goto :ToConnectDevice
-         
-        ) else (
-             cls
-             
+            if %errorlevel% EQU 0 (
               echo Successfully Connected to %DevIp% 
               timeout /t 1 /nobreak
-          
-        )
+            
+            )
                 
                
         goto :Menu
