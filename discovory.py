@@ -1,48 +1,27 @@
-import socket
-import scapy.all as scapy
-import argparse
 import sys
-
-hostname = socket.gethostname()
-ip_addr = socket.gethostbyname_ex(socket.gethostname())[2]
-
+import socket
+import nmap
 
 
+ipv4_addrs =[]
 
-def get_args():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('-t', '--target', dest='target', help='Target IP Address/Adresses')
-    options = parser.parse_args()
+nmScan = nmap.PortScanner()
 
-    #Check for errors i.e if the user does not specify the target IP Address
-    #Quit the program if the argument is missing
-    #While quitting also display an error message
-    if not options.target:
-        #Code to handle if interface is not specified
-        parser.error("[-] Please specify an IP Address or Addresses, use --help for more info.")
-    return options
-  
-def scan(ip):
-    arp_req_frame = scapy.ARP(pdst = ip)
+nmScan.scan('192.168.2.13/24', '22-150','-O -Pn  -A')
+for host in nmScan.all_hosts():
+     for proto in nmScan[host].all_protocols():
+        lport = nmScan[host][proto].keys()
+        # print(lport)
+        # lport.sort()
+        for port in lport:
+            if nmScan[host][proto][port]['state'] == 'open':
+                dict ={
+					"vendor": nmScan[host]['osmatch'][0]['osclass'][0]['vendor'],
+					'osfamily' :nmScan[host]['osmatch'][0]['osclass'][0]['osfamily'],
+					"ipv4" : nmScan[host]['addresses']['ipv4']
+				}
+                ipv4_addrs.append(dict)
 
-    broadcast_ether_frame = scapy.Ether(dst = "ff:ff:ff:ff:ff:ff")
-    
-    broadcast_ether_arp_req_frame = broadcast_ether_frame / arp_req_frame
 
-    answered_list = scapy.srp(broadcast_ether_arp_req_frame, timeout = 1, verbose = False)[0]
-    result = []
-    for i in range(0,len(answered_list)):
-        client_dict = {"ip" : answered_list[i][1].psrc, "mac" : answered_list[i][1].hwsrc}
-        result.append(client_dict)
 
-    return result
-  
-def display_result(result):
-    print("-----------------------------------\nIP Address\tMAC Address\n-----------------------------------")
-    for i in result:
-        print("{}\t{}".format(i["ip"], i["mac"]))
-  
-
-options = get_args()
-scanned_output = scan(options.target)
-display_result(scanned_output)
+print(ipv4_addrs)
