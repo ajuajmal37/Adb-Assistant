@@ -1,44 +1,47 @@
 ::[Bat To Exe Converter]
 ::
-::fBE1pAF6MU+EWHreyHcjLQlHcCiHMmSsCfgsy9Tf6vmMtkINaMM7esL6yaeHM/QS5FHYd58j6ntemoUJFB44
-::fBE1pAF6MU+EWHreyHcjLQlHcCiHMmSsCfgsy9Tf6vmMtkINaMM7esL6yaeHM/QS5FHYd58j6ltemvwFAjpId1yvYgNU
-::fBE1pAF6MU+EWHreyHcjLQlHcCiHMmSsCfgsy9Tf6vmMtkINaMM7esL6yaeHM/QS5FHYd58j6ltemvwFAi5LfDO7Z0EwpWIi
+::fBE1pAF6MU+EWH/eyHIiJxFRTxCRAEq+BPU9+/vy/P6GrFkhVeY9NorD39Q=
+::fBE1pAF6MU+EWH/eyHIiJxFRTxCRAEq+BPU9+/vy/P6GrFkhdeY9T4bV+6SHbuQf5iU=
+::fBE1pAF6MU+EWH/eyHIiJxFRTxCRAEq+BPU9+/vy/P6GrFkhdeY9T4bV76eMAfAapEHoefY=
 ::YAwzoRdxOk+EWAjk
-::fBw5plQjdCyDJGyX8VAjFDdRQguUMyaKJYk45//14+WGpl4heeMtbJWCivmtKfIQ5kCpVJgpxHVTnIUFDxQ4
+::fBw5plQjdCyDJGyX8VAjFBpeWQWIAE+1EbsQ5+n//NahsEIEW/E3eZ3Ql5GAK+Ufp2zQcIQgmHNZl6s=
 ::YAwzuBVtJxjWCl3EqQJgSA==
 ::ZR4luwNxJguZRRnk
 ::Yhs/ulQjdF65
 ::cxAkpRVqdFKZSDk=
-::cBs/ulQjdF+5
-::ZR41oxFsdFKZSDk=
+::cBs/ulQjdF65
+::ZR41oxFsdFKZSTk=
 ::eBoioBt6dFKZSDk=
-::cRo6pxp7LAbNWATEpCI=
-::egkzugNsPRvcWATEpCI=
+::cRo6pxp7LAbNWATEpSI=
+::egkzugNsPRvcWATEpSI=
 ::dAsiuh18IRvcCxnZtBJQ
 ::cRYluBh/LU+EWAnk
 ::YxY4rhs+aU+IeA==
-::cxY6rQJ7JhzQF1fEqQJhZksaHErQXA==
-::ZQ05rAF9IBncCkqN+0xwdVsFAlTMbCXqZg==
-::ZQ05rAF9IAHYFVzEqQIRLBkUbReRNXiuB7sIqLm1v6TVwg==
-::eg0/rx1wNQPfEVWB+kM9LVsJDCWGPiubFaYV+/z64f7n
-::fBEirQZwNQPfEVWB+kM9LVsJDGQ=
-::cRolqwZ3JBvQF1fEqQJQ
-::dhA7uBVwLU+EWHiO4EczIHs=
+::cxY6rQJ7JhzQF1fEqQJiZksaHErSXA==
+::ZQ05rAF9IBncCkqN+0xwdVsGAlTMbCXqZg==
+::ZQ05rAF9IAHYFVzEqQIRDDkUbReRNXiuB7sIiA==
+::eg0/rx1wNQPfEVWB+kM9LVsJDCWmHiubFaYV+/z64f7n
+::fBEirQZwNQPfEVWB+kM9LVsJDCWmHiubFaYV+/z64f7n
+::cRolqwZ3JBvQF1fEqQIRDDkUbReRNXiuB7sIiA==
+::dhA7uBVwLU+EWHiOtHY1KxM0
 ::YQ03rBFzNR3SWATElA==
 ::dhAmsQZ3MwfNWATElA==
 ::ZQ0/vhVqMQ3MEVWAtB9wSA==
 ::Zg8zqx1/OA3MEVWAtB9wSA==
 ::dhA7pRFwIByZRRnk
-::Zh4grVQjdCyDJGyX8VAjFDdRQguUMyaKJYk47fvw++WXnmwZVq8ea5zSyaCPLvQvy0HmNbc+xXNJjMoCGFsQaF/6IF96+SAQ/yqAL8L8
+::Zh4grVQjdCmDJGmW+0g1Kw9HcCWGPiubFaYV+/z64f67g2k/FMMsa4bIzrWANKAluAu0O5M10xo=
 ::YB416Ek+ZG8=
 ::
 ::
 ::978f952a14a936cc963da21a135fa983
+
 @echo off
 
 set ipaddr=%1
+IF [%ipaddr%] EQU [] echo Invalid format. &&  echo Example : appname [ip address of device] && pause > nul && Exit
 
-IF [%ipaddr%] == [] exit /b 0
+
+
 
 goto :Main
 
